@@ -2,15 +2,16 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
-
+if(process.env) {
 const firebaseConfig = {
-    apiKey: "AIzaSyC-_n7SPuGIfjlinF0V8rMnKXnv67BA76M",
-    authDomain: "nodetalk-24565.firebaseapp.com",
-    projectId: "nodetalk-24565",
-    storageBucket: "nodetalk-24565.firebasestorage.app",
-    messagingSenderId: "400411214340",
-    appId: "1:400411214340:web:78f1c53257d55c5014eb51"
-  };
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+};
+}
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
